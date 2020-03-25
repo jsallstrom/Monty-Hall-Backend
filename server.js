@@ -45,7 +45,7 @@ function playGame(changeDoor) {
 function simulateGames(numOfGames, changeDoor) {
      let numOfGamesWon = 0;
      for (let i = 0; i < numOfGames; i++) {
-          numOfGamesWon += playGame(changeDoor); // returns true(1) or false(0) depending on if the game was won
+          numOfGamesWon += playGame(changeDoor);
      }
 
      return numOfGamesWon;
