@@ -19,6 +19,11 @@ app.get("/", (req, res) => {
 
 app.post("/", (req, res) => {
      const numOfGames = req.body.numOfGames;
+
+     if (numOfGames < 0) {
+          throw new Error("Error");
+     }
+
      const changeDoor = req.body.changeDoor;
 
      const result = simulateGames(numOfGames, changeDoor);
@@ -30,9 +35,7 @@ function playGame(changeDoor) {
      const allDoors = [0, 1, 2];
 
      let prizeDoor = Math.floor(Math.random() * 3);
-
      let playerSelectedDoor = Math.floor(Math.random() * 3);
-
      let openGoatDoor = allDoors.find((door) => door !== prizeDoor && door !== playerSelectedDoor);
 
      if (changeDoor) {
